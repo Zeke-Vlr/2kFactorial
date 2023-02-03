@@ -1,4 +1,4 @@
-# 2kFactorial
+# 2k Factorial Design of Experiments Code
 This code will run the analysis for a 2k Factorial design of experiments test with 1 to 26 variable parameters of interest.
 
 You can choose to run the analysis code with results put directly into the code in the variable "test" on line 73 or to read in a .txt file with saved values with the "filename" on line 77.
