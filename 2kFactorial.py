@@ -75,7 +75,7 @@ def writefile(filename,lib,n,i,savefile):
     
     ###Read values from .txt - The other option is to load a txt file with the 
     ###data saved in the proper order
-filename = "Qlocalmin"  #without the .txt file extension, just the saved name
+filename = "test_example"  #without the .txt file extension, just the saved name
 test = readfile(filename)
 
 
