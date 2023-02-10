@@ -54,12 +54,13 @@ def readfile(filename):
     return data
 
 #This is used to write the results to a file
-def writefile(filename,lib,n,i):
+def writefile(filename,lib,n,i,savefile):
     fn = filename+".txt"
     file=open(fn,'a')
     with open(fn,'a') as fi:
         if (i==0):
             fi.write('A 2k factorial study was performed using '+str(n)+' variables\n')
+            fi.write('The results come from the file named "'+str(savefile)+'"\n')
         fi.write(str(lib)+'\n')
         if (i==(n-1)):
             fi.write('\n')
@@ -74,7 +75,7 @@ def writefile(filename,lib,n,i):
     
     ###Read values from .txt - The other option is to load a txt file with the 
     ###data saved in the proper order
-filename = "test_example"  #without the .txt file extension, just the saved name
+filename = "Qlocalmin"  #without the .txt file extension, just the saved name
 test = readfile(filename)
 
 
@@ -88,10 +89,10 @@ test = readfile(filename)
 
 #*********************************************************
 #Do you want to save the 2k factorial results to a .txt file?
-savefile = 'y'        #Use 'y' to save a file
-filewrite = 'test1'   #If you do not change the file name it will append the 
-                      #next results to the same file. I would recommend naming 
-                      #this file the type of test/parameters being explored
+savefile = 'y'          #Use 'y' to save a file
+filewrite =' Results'   #If you do not change the file name it will append the 
+                        #next results to the same file. I would recommend naming 
+                        #this file the type of test/parameters being explored
 #*********************************************************
 k = int(math.log2(len(test))) # the k value is calculated based on the number of test results
 tm = ff2n(k) 
@@ -139,8 +140,11 @@ for z in range (k-2):
            exec(f"dict{o}[key{o}]=twok(test,tm,k,g,o)")
            g = []
            te = ''
+if 'filename' in locals():
+    check = 1
+else:
+    filename = "Unnamed - data entered by hand"
 
-for i in range(k): 
     exec(f"print(dict{i+1})")
     if savefile=='y':
-        exec(f"writefile(filewrite, dict{i+1},k,i)")
+        exec(f"writefile(filewrite, dict{i+1},k,i,filename)")
