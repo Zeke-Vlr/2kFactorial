@@ -145,6 +145,7 @@ for z in range (k-2):
            exec(f"dict{o}[key{o}]=twok(test,tm,k,g,o)")
            g = []
            te = ''
+for i in range(k): 
     exec(f"print(dict{i+1})")
     if savefile=='y':
         exec(f"writefile(filewrite, dict{i+1},k,i,filename)")
