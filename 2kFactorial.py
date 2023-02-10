@@ -126,6 +126,11 @@ for i in range(k):
         exec("dict2[key2]=twok(test,tm,k,p,2)")
     exec("dict1[key1]=twok(test,tm,k,i,1)")
     combin.append(i)
+
+if 'filename' in locals():
+    check = 1
+else:
+    filename = "Unnamed - data entered by hand"
     
 for z in range (k-2):
     o = z+3
@@ -140,11 +145,6 @@ for z in range (k-2):
            exec(f"dict{o}[key{o}]=twok(test,tm,k,g,o)")
            g = []
            te = ''
-if 'filename' in locals():
-    check = 1
-else:
-    filename = "Unnamed - data entered by hand"
-
     exec(f"print(dict{i+1})")
     if savefile=='y':
         exec(f"writefile(filewrite, dict{i+1},k,i,filename)")
